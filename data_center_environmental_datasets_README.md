@@ -21,9 +21,9 @@ cooling, grid, hardware, and socioeconomic/environmental conditions.
 |---|---|---|---|
 | D1 | **AI Data Centers** | Epoch AI | https://epoch.ai/data/data-centers-documentation |
 | D2 | **Generative AI Workload Power Profiles** | National Laboratory of the Rockies / DOE | https://data.nlr.gov/submissions/312 |
-| D3 | **IM3 Open Source Data Center Atlas** | DOE / PNNL / OSTI | [IM3 Open Source Data Center Atlas](https://im3.pnnl.gov/visualizations)|
+| D3 | **IM3 Open Source Data Center Atlas** | DOE / PNNL / OSTI | https://data.msdlive.org/records/65g71-a4731|
 | D4 | **Open U.S. Data Centers Tracker** | FracTracker Alliance | https://fractracker.org/data-centers/ |
-| D5 | **IM3 Projected U.S. Data Center Locations** | DOE / OSTI | [IM3 Projected U.S. Data Center Locations](https://im3.pnnl.gov/visualizations) |
+| D5 | **IM3 Projected U.S. Data Center Locations** | DOE / OSTI | https://im3.pnnl.gov/visualizations|
 | D6 | **EPRI U.S. Data Center Load Projections / Powering Intelligence** | EPRI | https://powering-intelligence.epri.com/ |
 | D7 | **EIA-930 Hourly U.S. Electric Grid Monitor** | U.S. EIA | https://www.eia.gov/electricity/gridmonitor/ |
 | D8 | **Emissions & Generation Resource Integrated Database (eGRID)** | U.S. EPA | https://www.epa.gov/egrid/detailed-data |

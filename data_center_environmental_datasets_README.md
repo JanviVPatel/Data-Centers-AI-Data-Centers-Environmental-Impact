@@ -15,67 +15,23 @@ cooling, grid, hardware, and socioeconomic/environmental conditions.
 
 ## Dataset Sources
 
-  ----------------------------------------------------------------------------------------------------------------
-  ID                Dataset / Data    Website /         Dataset / Website Link
-                    Source            Organization      
-  ----------------- ----------------- ----------------- ----------------------------------------------------------
-  D1                **AI Data         Epoch AI          https://epoch.ai/data/data-centers-documentation
-                    Centers**                           
+## Dataset Sources
 
-  D2                **Generative AI   National          https://data.nlr.gov/submissions/312
-                    Workload Power    Laboratory of the 
-                    Profiles**        Rockies / DOE     
-
-  D3                **IM3 Open Source DOE / PNNL / OSTI [IM3 Open Source Data Center Atlas](https://im3.pnnl.gov/visualizations)
-                    Data Center                         
-                    Atlas**                             
-
-  D4                **Open U.S. Data  FracTracker       https://fractracker.org/data-centers/
-                    Centers Tracker** Alliance          
-
-  D5                **IM3 Projected   DOE / OSTI        [IM3 Projected U.S. Data Center Locations](https://im3.pnnl.gov/visualizations)
-                    U.S. Data Center                    
-                    Locations**                         
-
-  D6                **EPRI U.S. Data  EPRI              https://powering-intelligence.epri.com/
-                    Center Load                         
-                    Projections /                       
-                    Powering                            
-                    Intelligence**                      
-
-  D7                **EIA-930 Hourly  U.S. EIA          https://www.eia.gov/electricity/gridmonitor/
-                    Electric Grid                       
-                    Monitor**                           
-
-  D8                **Emissions &     U.S. EPA          https://www.epa.gov/egrid/detailed-data
-                    Generation                          
-                    Resource                            
-                    Integrated                          
-                    Database                            
-                    (eGRID)**                           
-
-  D9                **Water Use in    U.S. Geological   https://water.usgs.gov/watuse/data/
-                    the United        Survey            
-                    States**                            
-
-  D10               **EPA EJScreen    EDGI / Zenodo     https://zenodo.org/records/14767363
-                    Data,                               
-                    2015--2024**                        
-
-  D11               **Low-Income      DOE / OpenEI      https://catalog.data.gov/dataset/low-income-energy-affordability-data-lead-tool-2022-update
-                    Energy                              
-                    Affordability                       
-                    Data (LEAD)**                       
-
-  D12               **Environmental   Boavizta          https://github.com/Boavizta/environmental-footprint-data
-                    Footprint Data**                    
-
-  D13               **Boavizta        Boavizta          https://github.com/Boavizta/boaviztapi
-                    Hardware /                          
-                    Computing                           
-                    Environmental                       
-                    Data**                              
-  ----------------------------------------------------------------------------------------------------------------
+| ID | Dataset / Data Source | Website / Organization | Dataset / Website Link |
+|---|---|---|---|
+| D1 | **AI Data Centers** | Epoch AI | https://epoch.ai/data/data-centers-documentation |
+| D2 | **Generative AI Workload Power Profiles** | National Laboratory of the Rockies / DOE | https://data.nlr.gov/submissions/312 |
+| D3 | **IM3 Open Source Data Center Atlas** | DOE / PNNL / OSTI | https://www.osti.gov/biblio/2550666 |
+| D4 | **Open U.S. Data Centers Tracker** | FracTracker Alliance | https://fractracker.org/data-centers/ |
+| D5 | **IM3 Projected U.S. Data Center Locations** | DOE / OSTI | https://www.osti.gov/biblio/3020186 |
+| D6 | **EPRI U.S. Data Center Load Projections / Powering Intelligence** | EPRI | https://powering-intelligence.epri.com/ |
+| D7 | **EIA-930 Hourly U.S. Electric Grid Monitor** | U.S. EIA | https://www.eia.gov/electricity/gridmonitor/ |
+| D8 | **Emissions & Generation Resource Integrated Database (eGRID)** | U.S. EPA | https://www.epa.gov/egrid/detailed-data |
+| D9 | **Water Use in the United States** | U.S. Geological Survey | https://water.usgs.gov/watuse/data/ |
+| D10 | **EPA EJScreen Data, 2015–2024** | EPA / Zenodo | https://zenodo.org/records/14767363 |
+| D11 | **Low-Income Energy Affordability Data (LEAD)** | DOE / OpenEI | https://catalog.data.gov/dataset/low-income-energy-affordability-data-lead-tool-2022-update |
+| D12 | **Environmental Footprint Data** | Boavizta | https://github.com/Boavizta/environmental-footprint-data |
+| D13 | **Hardware / Computing Environmental Data** | Boavizta | https://github.com/Boavizta/boaviztapi |
 
 ## What Each Source Provides
 

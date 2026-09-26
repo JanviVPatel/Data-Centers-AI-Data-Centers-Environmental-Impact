@@ -22,7 +22,7 @@ cooling, grid, hardware, and socioeconomic/environmental conditions.
   D1                **AI Data         Epoch AI          https://epoch.ai/data/data-centers-documentation
                     Centers**                           
 
-  D2                **Generative AI   National          [Dataset of Generative AI Workload Power Profiles](https://data.nlr.gov/submissions/312)
+  D2                **Generative AI   National          [[Dataset of Generative AI Workload Power Profiles](https://data.nlr.gov/submissions/312)](https://www.bing.com/ck/a?!&&p=c3ca1e41cfb2069f995488a146379f294899143a11eb2e0be61f8831f584233bJmltdHM9MTc5MDM4MDgwMA&ptn=3&ver=2&hsh=4&fclid=0413a537-1b96-6c9c-167c-b1e91a3e6d55&psq=**%5bDataset+of+Generative+AI+Workload+Power+Profiles%5d(https%3a%2f%2fdata.openei.org%2fsubmissions%2f8651)**&u=a1aHR0cHM6Ly9kYXRhLm9wZW5laS5vcmcvc3VibWlzc2lvbnMvODY1MQ)
                     Workload Power    Laboratory of the 
                     Profiles**        Rockies / DOE     
 

@@ -22,18 +22,18 @@ cooling, grid, hardware, and socioeconomic/environmental conditions.
   D1                **AI Data         Epoch AI          https://epoch.ai/data/data-centers-documentation
                     Centers**                           
 
-  D2                **Generative AI   National          https://data.nlr.gov/submissions/312
+  D2                **Generative AI   National          https://data.openei.org/search?q=DE-AC36-08GO28308
                     Workload Power    Laboratory of the 
                     Profiles**        Rockies / DOE     
 
-  D3                **IM3 Open Source DOE / PNNL / OSTI https://www.osti.gov/biblio/2550666
+  D3                **IM3 Open Source DOE / PNNL / OSTI https://im3.pnnl.gov/
                     Data Center                         
                     Atlas**                             
 
   D4                **Open U.S. Data  FracTracker       https://fractracker.org/data-centers/
                     Centers Tracker** Alliance          
 
-  D5                **IM3 Projected   DOE / OSTI        https://www.osti.gov/biblio/3020186
+  D5                **IM3 Projected   DOE / OSTI        https://im3.pnnl.gov/visualizations
                     U.S. Data Center                    
                     Locations**                         
 
@@ -62,7 +62,7 @@ cooling, grid, hardware, and socioeconomic/environmental conditions.
                     Data,                               
                     2015--2024**                        
 
-  D11               **Low-Income      DOE / OpenEI      https://data.openei.org/submissions/6219
+  D11               **Low-Income      DOE / OpenEI      https://catalog.data.gov/dataset/low-income-energy-affordability-data-lead-tool-2022-update
                     Energy                              
                     Affordability                       
                     Data (LEAD)**                       

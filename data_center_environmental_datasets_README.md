@@ -2,7 +2,7 @@
 
 ## Project
 
-**Project:** How Data Centers and AI Data Centers Affect the Environment
+**Project:** How Data Centers and AI Data Centers Affect the Environment and how can we prevent it using historical data
 
 This repository documents publicly available datasets that can be used
 to investigate relationships between data-center / AI-data-center

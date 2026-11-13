@@ -10,14 +10,12 @@ venv/
 env/
 .env
 
-# Large Raw Datasets (Do NOT push multi-gigabyte files to GitHub)
+# Large Raw Archives (>50MB) - Stored locally, not tracked by Git
 EDA Data/**/*.zip
-EDA Data/**/extracted/
-EDA Data/D2_NLR_GenAI_Power_Profiles/
-EDA Data/D5_IM3_Projected_Locations/
-EDA Data/D11_DOE_LEAD/
-EDA Data/**/*.xlsx
-EDA Data/**/*.gpkg
+EDA Data/D2_NLR_GenAI_Power_Profiles/extracted/
+EDA Data/D5_IM3_Projected_Locations/extracted/
+EDA Data/D11_DOE_LEAD/*.csv
+EDA Data/D11_DOE_LEAD/*_extracted/
 data/raw/
 *.tar.gz
 *.iso
@@ -25,4 +23,3 @@ data/raw/
 # OS generated files
 .DS_Store
 Thumbs.db
-EDA Data/D7_EIA930_Grid_Monitor/

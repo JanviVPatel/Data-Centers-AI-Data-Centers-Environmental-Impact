@@ -1,0 +1,135 @@
+# Server
+
+## Characteristics
+
+| Name         | Unit | Default value                                                 | Description    | Example |
+|--------------|------|---------------------------------------------------------------|----------------|---------|
+| usage        | None | See [server usage](../usage/usage.md)                         |                | ..      |
+| cpu          | None | See [cpu](../components/cpu.md)                               |                | ..      |
+| ram          | None | See [ram](../components/ram.md)                               |                | ..      |
+| disk         | None | See [ssd](../components/ssd.md) & [hdd](../components/hdd.md) | SSD or HDD     | ..      |
+| motherboard  | None | See [motherboard](../components/motherboard.md)               |                | ..      |
+| power_supply | None | See [power_supply](../components/power_supply.md)             |                | ..      |
+| assembly     | None | See [assembly](../components/assembly.md)                     | Assembly phase | ..      |
+| case         | None | See [case](../components/case.md)                             | Enclosure      | ..      |
+
+
+### Server usage 
+
+In addition to the characteristics available for [usage](../usage/usage.md), you can use the following:
+
+| Name                        | Unit           | Default value (default;min;max) | Description                                                         | Example |
+|-----------------------------|----------------|---------------------------------|---------------------------------------------------------------------|---------|
+| other_consumption_ratio     | None           | 0.33;0.2;0.6                    | Power consumption ratio of other components (except disks) relative to RAM and CPU | 0.2     |
+| gpu_time_workload           | %              | 65;0;100                        | Load of the server's GPUs, as a percentage between 0 and 100     | 80      |
+
+## Complete
+
+The following components are [completed](../auto_complete.md) with the characteristics taken from the [archetype](../archetypes.md) :
+
+* [CPU](../components/cpu.md)
+* [RAM](../components/ram.md)
+* [SSD](../components/ssd.md)
+* [HDD](../components/hdd.md)
+* [power supplies](../components/power_supply.md)
+* [case](../components/case.md)
+
+## Embedded impacts
+
+### Impacts criteria
+
+| Criteria | Implemented | Source                                                                                                                                                                                     | 
+|----------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| gwp      | yes         | Bottom-up approach based on [Green Cloud Computing, 2021](https://www.umweltbundesamt.de/sites/default/files/medien/5750/publikationen/2021-06-17_texte_94-2021_green-cloud-computing.pdf) |
+| adp      | yes         | Bottom-up approach based on [Green Cloud Computing, 2021](https://www.umweltbundesamt.de/sites/default/files/medien/5750/publikationen/2021-06-17_texte_94-2021_green-cloud-computing.pdf) |
+| pe       | yes         | Bottom-up approach based on [Green Cloud Computing, 2021](https://www.umweltbundesamt.de/sites/default/files/medien/5750/publikationen/2021-06-17_texte_94-2021_green-cloud-computing.pdf) |
+| gwppb    | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| gwppf    | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| gwpplu   | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| ir       | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| lu       | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| odp      | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| pm       | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| pocp     | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| wu       | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| mips     | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| adpe     | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| adpf     | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| ap       | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| ctue     | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| ctuh_c   | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| ctuh_nc  | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| epf      | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| epm      | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| ept      | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+
+### Bottom-up approach
+
+$$
+\begin{equation}
+\begin{aligned}
+\text{server}_\text{embedded}^\text{criteria} & = \sum_{\set{\text{components}}}{\text{component}_
+\text{embedded}^\text{criteria}} \\ \\
+& = \text{cpu_units} * \text{CPU}_{embedded}^{criteria} \\
+& \quad + \ \text{ram_units} * \text{RAM}_{embedded}^{criteria} \\
+& \quad + \ \text{ssd_units} * \text{SSD}_{embedded}^{criteria} \\
+& \quad + \ \text{hdd_units} * \text{HDD}_{embedded}^{criteria} \\
+& \quad + \ \text{motherboard}_{embedded}^{criteria} \\
+& \quad + \ \text{power_supply_units} * \text{power_supply}_{embedded}^{criteria} \\
+& \quad + \ \text{assembly}_{embedded}^{criteria} \\
+& \quad + \ \text{enclosure}_{embedded}^{criteria}
+\end{aligned}
+\end{equation}
+$$
+
+### Fix impact factors
+
+| Criteria   | Unit               | value          |
+|------------|--------------------|----------------|
+| ir         | kg U235 eq.        | 2320.0         |
+| lu         | No dimension       | -147.0         |
+| odp        | kg CFC-11 eq.      | 0.00135        |
+| pm         | Disease occurrence | 0.000113       |
+| pocp       | kg NMVOC eq.       | 8.4            |
+| wu         | m3 eq.             | -3710.0        |
+| mips       | kg                 | 10600.0        |
+| adpe       | kg SB eq.          | 0.0378         |
+| adpf       | MJ                 | 51500.0        |
+| ap         | mol H+ eq.         | 19.7           |
+| ctue       | CTUe               | 48400.0        |
+| ctuh-c     | CTUh               | 1.94e-07       |
+| ctuh-nc    | CTUh               | 1.87e-05       |
+| epf        | kg P eq.           | -0.258         |
+| epm        | kg N eq.           | 2.94           |
+| ept        | mol N eq.          | 27.0           |
+
+## Usage impact
+
+Both [power consumption](../usage/power.md) and [consumption profile](../consumption_profile.md) are implemented.
+
+## Consumption profile
+
+A server consumption profile is of the form :
+
+$$
+\text{CP}_{\text{component}} = \text{consumption_profile}_{\text{component}}
+$$
+
+$$
+\text{CP}(\text{workload}) = (\text{CP}_{\text{CPU}}(\text{workload})
++ \text{CP}_{\text{RAM}}(\text{workload}))
+* (1 + \text{other_consumption_ratio})
++ \text{P}_{\text{disks}}
++ \text{P}_{\text{GPU}}(\text{gpu_workload}) * \text{GPU.units}
+$$
+
+$\text{CP}_{\text{CPU}}(\text{workload})$ and $\text{CP}_{\text{RAM}}(\text{workload})$ depend on the technical
+characteristics of the RAM and CPU.
+$\text{P}_{\text{disks}}$ is the power of the local drives: a constant power per drive (see [SSD](../components/ssd.md#usage-impact)
+and [HDD](../components/hdd.md#usage-impact)) multiplied by the number of drives. It is added outside of
+$\text{other_consumption_ratio}$, so that the drives are not counted twice.
+$\text{P}_{\text{GPU}}$ is the power of one GPU: its `avg_power` if given, otherwise modelled from its TDP
+(see [GPU](../components/gpu.md#usage-impacts)). It is also added outside of $\text{other_consumption_ratio}$.
+$\text{gpu_workload}$ is `gpu_time_workload`, 65% by default: it does not follow the server's `time_workload`. A `time_workload` set in the GPU's own usage takes precedence.
+$\text{other_consumption_ratio}$ is used to account for the electrical consumption of the other components (other than RAM,
+CPU and disks).

@@ -1,0 +1,164 @@
+# Cloud instances
+
+!!!warning
+    Before v1.2, the impacts in the verbose dictionary qualified the impacts of the component of the whole server hosting the instance. Since v1.2, the impacts in the verbose dictionary are the impacts of the portion of the component used by the instance itself.
+
+## Characteristics
+
+Cloud instance characteristics are pre-recorded as [archetypes](../archetypes.md). 
+The API will complete the following characteristics depending on the cloud provider and cloud instance name given by the user :
+
+| Name        | Unit  | Description                     | Example  |
+|-------------|-------|---------------------------------|----------|
+| vcpu        | None  | Number of virtual CPUs          | 2        |
+| memory      | GB    | RAM capacity                    | 32       |
+| ssd_storage | GB    | SSD storage capacity            | 500      |
+| hdd_storage | GB    | HDD storage capacity            | 0        |
+| gpu_units   | None  | Number of GPUs [^1]             | 1        |
+| platform    | None  | Bare metal hosting the instance | a1.metal |
+| usage       | None  | See usage                       |          |
+
+[^1]: May be fractional for instances that share a partitioned GPU (vGPU or MIG), for
+example `0.125` for an eighth of a card.
+
+To add a new cloud instance to the API please refer to the [cloud instance contribution guide](../../contributing/cloud_instance.md).
+
+### Cloud instance usage 
+
+In addition to the characteristics available for [usage](../usage/usage.md), you can use the following:
+
+| Name                        | Unit           | Default value (default;min;max) | Description                                                         | Example |
+|-----------------------------|----------------|---------------------------------|---------------------------------------------------------------------|---------|
+| other_consumption_ratio     | None           | 0.33;0.2;0.6                    | Power consumption ratio of other components (except disks) relative to RAM and CPU | 0.2     |
+| gpu_time_workload           | %              | 65;0;100                        | Load of the instance's GPUs, as a percentage between 0 and 100   | 80      |
+
+## Perimeter covered
+
+Following the Life Cycle Assesment methodology, we should include everythin that is needed to provide the Functional Unit.
+In the case of cloud instances, using te BoaviztAPI for evaluation, the Functional Unit would probably look like "using an instance of type/family X during N hours, with a load average of Z%".
+To be complete regarding the impact of such an FU, we should of course account for a share of the bare metal servers used to provide the instance, but also :
+- share of network infrastructure dedicated to the same service/FU
+- share of the mutualized infrastructure (servers, network, storage, etc.) used to deliver the service
+- share of the mutualized technical environment (building, cooling, lighting, etc.), allocated thanks to an adequate allocation factor
+
+![Drawing representing the perimeter covered by the cloud/instance route in BoaviztAPI](../../assets/boaviztapi_cloud_instance_perimeter.webp)
+
+Today the BoaviztAPI only accounts for the share of resources used on the bare metal servers dedicated to the IaaS/instances service.
+
+The drawing above represents in black and plain lines the parts of the impact that are actually accounted for and in gray and dotted lines the ones that remain to be implemented.
+
+The other parts of the impact shall be implemented in a near future, using hypothesis when necessary.
+
+## Embedded impacts
+
+### Impacts criteria
+
+| Criteria | Implemented | Source                                                                                                                                                                                     | 
+|----------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| gwp      | yes         | Bottom-up approach based on [Green Cloud Computing, 2021](https://www.umweltbundesamt.de/sites/default/files/medien/5750/publikationen/2021-06-17_texte_94-2021_green-cloud-computing.pdf) |
+| adp      | yes         | Bottom-up approach based on [Green Cloud Computing, 2021](https://www.umweltbundesamt.de/sites/default/files/medien/5750/publikationen/2021-06-17_texte_94-2021_green-cloud-computing.pdf) |
+| pe       | yes         | Bottom-up approach based on [Green Cloud Computing, 2021](https://www.umweltbundesamt.de/sites/default/files/medien/5750/publikationen/2021-06-17_texte_94-2021_green-cloud-computing.pdf) |
+| gwppb    | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| gwppf    | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| gwpplu   | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| ir       | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| lu       | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| odp      | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| pm       | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| pocp     | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| wu       | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| mips     | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| adpe     | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| adpf     | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| ap       | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| ctue     | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| ctuh_c   | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| ctuh_nc  | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| epf      | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| epm      | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+| ept      | yes         | [Base IMPACTS® ADEME](https://base-empreinte.ademe.fr/)                                                                                                               |
+
+### Method
+
+Embedded impacts of cloud instances are assessed based on the physical characteristics of the bare metal server hosting the instance (also named `platform` in this documentation). 
+The API allocate a portion of the impacts of each component to the instance based on the ratio of the instance characteristics to the server characteristics :
+
+* For RAM :  $\text{RAM}_{\text{instance}}^{\text{embedded}} = \text{RAM}_{\text{server}}^{\text{embedded}} \times \frac{\text{memory}_{\text{instance}}}{\text{RAM}_{\text{server}}}$
+* For SSD storage : $\text{SSD}_{\text{instance}}^{\text{embedded}} = \text{SSD}_{\text{server}}^{\text{embedded}} \times \frac{\text{ssd_storage}_{\text{instance}}}{\text{ssd_storage}_{\text{server}}}$
+* For HDD storage : $\text{HDD}_{\text{instance}}^{\text{embedded}} = \text{HDD}_{\text{server}}^{\text{embedded}} \times \frac{\text{hdd_storage}_{\text{instance}}}{\text{hdd_storage}_{\text{server}}}$
+* For GPU : $\text{GPU}_{\text{instance}}^{\text{embedded}} = \text{GPU}_{\text{server}}^{\text{embedded}} \times \frac{\text{gpu_units}_{\text{instance}}}{\text{GPU.units}_{\text{server}}}$
+* For CPU and all other components : $\text{Component}_{\text{instance}}^{\text{embedded}} = \text{Component}_{\text{server}}^{\text{embedded}} \times \frac{\text{vCPU}_{\text{instance}}}{\text{vCPU}_{\text{server}}}$
+
+!!!warning
+    Starting with v2.5, the GPU allocation for an instance type is based on the number of
+    gpu_units instead of its vCPU ratio.
+
+Because $\text{gpu_units}$ may be fractional, an instance sharing a partitioned card
+(vGPU or MIG) is allocated that fraction of a single GPU: an instance with
+$\text{gpu_units} = 0.125$ on a one-GPU platform gets an eighth of the die, VRAM, PWB,
+casing and heatsink impacts. An instance with no GPU, or hosted on a platform that
+declares none, is allocated no GPU impact at all.
+
+The API will sum the embedded impacts of each component to get the embedded impacts of the instance :
+
+$$
+\begin{equation}
+\begin{aligned}
+\text{server}_\text{embedded}^\text{criteria} & = \sum_{\set{\text{components}}}{\text{component}_
+\text{embedded}^\text{criteria}} \\ \\
+& = \text{cpu_units} * \text{CPU}_{embedded}^{criteria} \\
+& \quad + \ \text{ram_units} * \text{RAM}_{embedded}^{criteria} \\
+& \quad + \ \text{ssd_units} * \text{SSD}_{embedded}^{criteria} \\
+& \quad + \ \text{hdd_units} * \text{HDD}_{embedded}^{criteria} \\
+& \quad + \ \text{motherboard}_{embedded}^{criteria} \\
+& \quad + \ \text{power_supply_units} * \text{power_supply}_{embedded}^{criteria} \\
+& \quad + \ \text{assembly}_{embedded}^{criteria} \\
+& \quad + \ \text{enclosure}_{embedded}^{criteria}
+\end{aligned}
+\end{equation}
+$$
+
+
+When component impacts are not available, the API will use the generic impacts of the server and allocate the impacts to the instance based on the ratio of the instance vCPU to the server total vCPU : 
+
+$\text{Instance}_{\text{embedded}} = \text{Server}_{\text{embedded}} \times \frac{\text{vCPU}_{\text{instance}}}{\text{vCPU}_{\text{server}}}$
+
+
+## Usage impacts
+
+Usage impact of cloud instance are measured only from its [consumption profile](../consumption_profile.md). 
+
+### Consumption profile
+
+A cloud instance consumption profile is of the form :
+
+$$
+\text{CP}_{\text{component}} = \text{consumption_profile}_{\text{component}}
+$$
+
+$$
+\text{CP}_{\text{instance}}(\text{workload}) = (\text{CP}_{\text{CPU_server}}(\text{workload})
+* \frac{\text{vCPU}_{\text{instance}}}{\text{vCPU}_{\text{server}}}
++ \text{CP}_{\text{RAM_server}}(\text{workload})
+* \frac{\text{memory}_{\text{instance}}}{\text{RAM}_{\text{server}}})
+* (1 + \text{other_consumption_ratio})
++ \text{P}_{\text{SSD_server}}
+* \frac{\text{ssd_storage}_{\text{instance}}}{\text{ssd_storage}_{\text{server}}}
++ \text{P}_{\text{HDD_server}}
+* \frac{\text{hdd_storage}_{\text{instance}}}{\text{hdd_storage}_{\text{server}}}
++ \text{P}_{\text{GPU}}(\text{gpu_workload}) * \text{gpu_units}_{\text{instance}}
+$$
+
+$\text{CP}_{\text{CPU_server}}(\text{workload})$ and $\text{CP}_{\text{RAM_server}}(\text{workload})$ depend on the technical
+characteristics of the RAM and CPU. For the RAM, the capacity of the strips is assumed from the memory type of the
+platform's CPU (see [RAM consumption profile](../components/ram.md#cloud-instances)).
+$\text{P}_{\text{SSD_server}}$ and $\text{P}_{\text{HDD_server}}$ are the power of the platform's local drives, from a constant
+power per drive (see [SSD](../components/ssd.md#usage-impact) and [HDD](../components/hdd.md#usage-impact)). They are
+allocated by storage, as for the embedded impacts, so an instance without local storage gets none of it. They are
+added outside of $\text{other_consumption_ratio}$, so that the drives are not counted twice.
+$\text{P}_{\text{GPU}}$ is the power of one GPU, modelled from its TDP (see [GPU](../components/gpu.md#usage-impacts)).
+It is allocated by $\text{gpu_units}$, as for the embedded impacts, and also added outside of
+$\text{other_consumption_ratio}$. The GPU workload is $\text{gpu_time_workload}$, 65% by default, independently of $\text{time_workload}$
+(see [GPU](../components/gpu.md#usage-impacts)).
+$\text{other_consumption_ratio}$ is used to account for the electrical consumption of the other components (other than RAM,
+CPU and disks).

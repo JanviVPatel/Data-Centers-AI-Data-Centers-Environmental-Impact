@@ -14,8 +14,8 @@ env/
 EDA Data/**/*.zip
 EDA Data/D2_NLR_GenAI_Power_Profiles/extracted/
 EDA Data/D5_IM3_Projected_Locations/extracted/
-EDA Data/D11_DOE_LEAD/*.csv
 EDA Data/D11_DOE_LEAD/*_extracted/
+!EDA Data/D11_DOE_LEAD/TX_County_Energy_Burden_2022.csv
 data/raw/
 *.tar.gz
 *.iso

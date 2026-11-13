@@ -1,0 +1,28 @@
+# Python & Jupyter
+__pycache__/
+*.py[cod]
+*$py.class
+.ipynb_checkpoints/
+*.egg-info/
+
+# Virtual Environments
+venv/
+env/
+.env
+
+# Large Raw Datasets (Do NOT push multi-gigabyte files to GitHub)
+EDA Data/**/*.zip
+EDA Data/**/extracted/
+EDA Data/D2_NLR_GenAI_Power_Profiles/
+EDA Data/D5_IM3_Projected_Locations/
+EDA Data/D11_DOE_LEAD/
+EDA Data/**/*.xlsx
+EDA Data/**/*.gpkg
+data/raw/
+*.tar.gz
+*.iso
+
+# OS generated files
+.DS_Store
+Thumbs.db
+EDA Data/D7_EIA930_Grid_Monitor/

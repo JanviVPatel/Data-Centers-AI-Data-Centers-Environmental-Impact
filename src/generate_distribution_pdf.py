@@ -231,7 +231,7 @@ def build_pdf():
 
     # Member 1 Box
     m1_content = [
-        [Paragraph("<b>MEMBER 1: Data Ingestion & Integration Lead (Chapter 1)</b>", table_cell_bold)],
+        [Paragraph("<b>MEMBER 1: Junaid — Data Ingestion & Integration Lead (Chapter 1)</b>", table_cell_bold)],
         [Paragraph("<b>Assigned Notebook:</b> <code>notebooks/01_data_ingestion_and_master_dataset.ipynb</code><br/>"
                    "<b>Primary Goal:</b> Construct the unified master dataset by integrating facility coordinates, capacity, grid emissions, and regional power characteristics.<br/>"
                    "<b>Key Tasks:</b><br/>"
@@ -258,7 +258,7 @@ def build_pdf():
 
     # Member 2 Box
     m2_content = [
-        [Paragraph("<b>MEMBER 2: Data Cleaning & Missing Value Profiling Lead (Chapter 2)</b>", table_cell_bold)],
+        [Paragraph("<b>MEMBER 2: Madhav — Data Cleaning & Quality Lead (Chapter 2)</b>", table_cell_bold)],
         [Paragraph("<b>Assigned Notebook:</b> <code>notebooks/02_data_cleaning_and_missing_values.ipynb</code><br/>"
                    "<b>Primary Goal:</b> Ensure complete data integrity, resolve missingness, and eliminate anomalies.<br/>"
                    "<b>Key Tasks:</b><br/>"
@@ -285,7 +285,7 @@ def build_pdf():
 
     # Member 3 Box
     m3_content = [
-        [Paragraph("<b>MEMBER 3: Exploratory Data Analysis & Geospatial Lead (Chapter 3)</b>", table_cell_bold)],
+        [Paragraph("<b>MEMBER 3: Priyanshi — Visualization & Geospatial Lead (Chapter 3)</b>", table_cell_bold)],
         [Paragraph("<b>Assigned Notebook:</b> <code>notebooks/03_exploratory_data_analysis_and_visualizations.ipynb</code><br/>"
                    "<b>Primary Goal:</b> Uncover spatial, temporal, and multivariate patterns in energy and environmental impact.<br/>"
                    "<b>Key Tasks:</b><br/>"
@@ -313,7 +313,7 @@ def build_pdf():
 
     # Member 4 Box
     m4_content = [
-        [Paragraph("<b>MEMBER 4: Feature Engineering & Machine Learning Lead (Chapters 4 & 5)</b>", table_cell_bold)],
+        [Paragraph("<b>MEMBER 4: Janvi — Feature Engineering & ML Lead (Chapters 4 & 5)</b>", table_cell_bold)],
         [Paragraph("<b>Assigned Notebook:</b> <code>notebooks/04_feature_engineering_and_ml_models.ipynb</code><br/>"
                    "<b>Primary Goal:</b> Engineer predictive features, select top predictors, and train ML benchmark models.<br/>"
                    "<b>Key Tasks:</b><br/>"
